@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>RSVP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="wrap">
+<svg class="flame" viewBox="0 0 120 160" aria-hidden="true">
+<defs>
+<radialGradient id="gl" cx="50%" cy="60%" r="50%"><stop offset="0" stop-color="#f08a3c" stop-opacity=".5"/><stop offset="1" stop-color="#f08a3c" stop-opacity="0"/></radialGradient>
+<linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d63a1c"/><stop offset=".6" stop-color="#ee6a22"/><stop offset="1" stop-color="#f6a623"/></linearGradient>
+<linearGradient id="g2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f47d1e"/><stop offset="1" stop-color="#ffc83a"/></linearGradient>
+<linearGradient id="g3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd84a"/><stop offset="1" stop-color="#fff4b8"/></linearGradient>
+</defs>
+<ellipse class="glow" cx="60" cy="102" rx="58" ry="58" fill="url(#gl)"/>
+<path class="f f-side" d="M34 70C26 88 24 104 30 122C37 110 39 96 34 70Z" fill="url(#g1)" opacity=".85"/>
+<path class="f f-side2" d="M88 60C99 82 101 104 92 126C85 111 84 90 88 60Z" fill="url(#g1)" opacity=".85"/>
+<path class="f f1" d="M60 6C64 34 92 52 92 96C92 128 78 148 60 148C42 148 28 128 28 96C28 76 38 62 46 50C48 62 54 66 58 66C52 44 54 24 60 6Z" fill="url(#g1)"/>
+<path class="f f2" d="M60 40C62 62 80 74 80 104C80 128 71 142 60 142C49 142 40 128 40 104C40 88 50 78 54 66C56 74 60 76 62 76C58 62 58 52 60 40Z" fill="url(#g2)"/>
+<path class="f f3" d="M60 76C62 92 70 98 70 116C70 132 66 140 60 140C54 140 50 132 50 116C50 102 56 96 60 76Z" fill="url(#g3)"/>
+<ellipse cx="60" cy="141" rx="11" ry="5" fill="#6f9bff" opacity=".55"/>
+<circle class="ember e1" cx="48" cy="30" r="1.8" fill="#ffc83a"/>
+<circle class="ember e2" cx="76" cy="38" r="1.5" fill="#f6a623"/>
+<circle class="ember e3" cx="62" cy="20" r="1.2" fill="#ffd84a"/>
+</svg>
+<h2>RSVP</h2>
+<p id="ask">Please let us know by [RSVP date].</p>
+<fieldset id="attendbox" class="attend">
+<legend>Will you be attending?</legend>
+<div class="choice">
+<label><input type="radio" name="attend" id="attend-yes" value="yes"> Yes</label>
+<label><input type="radio" name="attend" id="attend-no" value="no"> No</label>
+</div>
+</fieldset>
+<!-- SETUP: paste your Google Apps Script web app URL (ends in /exec) in action below. -->
+<form id="rsvp" style="display:none" action="https://script.google.com/macros/s/AKfycbwcMoyiqVXj27jVL6ydHL6yYLJUUSvpx1s4rha91WTpmRLKlsgSzCpWJJNAfcA898-WUQ/exec" method="POST" novalidate>
+<input type="hidden" name="attend" value="Yes">
+<fieldset>
+<legend>Your name</legend>
+<input id="name" name="name" aria-label="Your name" type="text" autocomplete="name" required>
+</fieldset>
+<fieldset>
+<legend>Guests attending</legend>
+<div class="row">
+<div><label for="adults">Adults</label><input id="adults" name="adults" type="number" min="0" value="1" required></div>
+<div><label for="children">Children</label><input id="children" name="children" type="number" min="0" value="0" required></div>
+</div>
+</fieldset>
+<fieldset>
+<legend>Dinner preference</legend>
+<div class="row">
+<div><label for="veg">Veg</label><input id="veg" name="veg" type="number" min="0" value="0" required></div>
+<div><label for="nonveg">Non-veg</label><input id="nonveg" name="nonveg" type="number" min="0" value="0" required></div>
+</div>
+</fieldset>
+<p class="err" id="err" role="alert"></p>
+<div class="btns" style="margin-top:0">
+<a class="btn ghost" href="index.html">Back</a>
+<button class="btn primary" type="submit">Send RSVP</button>
+</div>
+</form>
+<div class="thanks" id="sorry" role="status"><p>Sorry you cannot make it to the occasion. Hope to see you some other day.</p>
+<div id="decline"><input id="dname" type="text" placeholder="Your name" aria-label="Your name" autocomplete="name"><p class="err" id="derr" role="alert"></p></div>
+<p id="dthanks" style="display:none">Thank you for letting us know.</p>
+<div class="btns"><a class="btn ghost" id="dback" href="index.html">Back to invitation</a><button class="btn primary" id="dsend" type="button">Let us know</button></div></div>
+<div class="thanks" id="thanks" role="status"><h3>Thank you!</h3><p>We have your RSVP and look forward to celebrating with you.</p><div class="btns"><a class="btn primary" href="index.html">Back to invitation</a></div></div>
+</main>
+<script>
+const f=document.getElementById('rsvp'),err=document.getElementById('err'),sorry=document.getElementById('sorry');
+document.querySelectorAll('input[name=attend]').forEach(r=>r.addEventListener('change',()=>{
+  const y=document.getElementById('attend-yes').checked;
+  f.style.display=y?'block':'none';sorry.style.display=y?'none':'block';
+}));
+f.addEventListener('submit',async e=>{
+  e.preventDefault();
+  if(!f.name.value.trim()){err.textContent='Enter your name.';return}
+  err.textContent='';
+  try{
+    await fetch(f.action,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(f))});
+    f.style.display='none';document.getElementById('ask').style.display='none';document.getElementById('attendbox').style.display='none';document.getElementById('thanks').style.display='block';
+  }catch{err.textContent='Could not send. Check your connection and try again.'}
+});
+const dname=document.getElementById('dname'),derr=document.getElementById('derr');
+async function sendDecline(){
+  if(!dname.value.trim()){derr.textContent='Enter your name.';return}
+  derr.textContent='';
+  try{
+    await fetch(f.action,{method:'POST',mode:'no-cors',body:new URLSearchParams({name:dname.value.trim(),attend:'No'})});
+    ['decline','dsend','attendbox','ask'].forEach(i=>document.getElementById(i).style.display='none');
+    document.getElementById('dthanks').style.display='block';
+    document.getElementById('dback').className='btn primary';
+  }catch{derr.textContent='Could not send. Check your connection and try again.'}
+}
+document.getElementById('dsend').addEventListener('click',sendDecline);
+dname.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();sendDecline()}});
+</script>
+</body>
+</html>
