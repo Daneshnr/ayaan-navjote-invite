@@ -114,3 +114,6 @@ input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(233,
 }
 br.m{display:none}
 @media (max-width:600px){br.m{display:inline}}
+#ask{white-space:nowrap;font-size:min(1rem,calc((100vw - 76px)/24))}
+.attend legend{white-space:nowrap}
+@media (max-width:480px){.attend legend{letter-spacing:.12em;font-size:min(.7rem,calc((100vw - 118px)/21.5))}}
