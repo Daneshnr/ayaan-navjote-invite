@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>RSVP</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Karla:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,9 +29,9 @@
 <circle class="ember e3" cx="62" cy="20" r="1.2" fill="#ffd84a"/>
 </svg>
 <h2>RSVP</h2>
-<p id="ask">Please let us know by [RSVP date].</p>
+<p id="ask">Please let us know by 25th November 2026.</p>
 <fieldset id="attendbox" class="attend">
-<legend>Will you be attending?</legend>
+<legend>Will you be able to attend?</legend>
 <div class="choice">
 <label><input type="radio" name="attend" id="attend-yes" value="yes"> Yes</label>
 <label><input type="radio" name="attend" id="attend-no" value="no"> No</label>
@@ -48,7 +48,7 @@
 <legend>Guests attending</legend>
 <div class="row">
 <div><label for="adults">Adults</label><input id="adults" name="adults" type="number" min="0" value="1" required></div>
-<div><label for="children">Children</label><input id="children" name="children" type="number" min="0" value="0" required></div>
+<div><label for="children">Children (0-12)</label><input id="children" name="children" type="number" min="0" value="0" required></div>
 </div>
 </fieldset>
 <fieldset>
@@ -64,10 +64,9 @@
 <button class="btn primary" type="submit">Send RSVP</button>
 </div>
 </form>
-<div class="thanks" id="sorry" role="status"><p>Sorry you cannot make it to the occasion. Hope to see you some other day.</p>
-<div id="decline"><input id="dname" type="text" placeholder="Your name" aria-label="Your name" autocomplete="name"><p class="err" id="derr" role="alert"></p></div>
+<div class="thanks" id="sorry" role="status"><div id="decline"><input id="dname" type="text" placeholder="Your name" aria-label="Your name" autocomplete="name"><p class="err" id="derr" role="alert"></p></div>
 <p id="dthanks" style="display:none">Thank you for letting us know.</p>
-<div class="btns"><a class="btn ghost" id="dback" href="index.html">Back to invitation</a><button class="btn primary" id="dsend" type="button">Let us know</button></div></div>
+<div class="btns"><button class="btn primary" id="dsend" type="button">Unable to attend</button><a class="btn ghost" id="dback" href="index.html">Back to invitation</a></div></div>
 <div class="thanks" id="thanks" role="status"><h3>Thank you!</h3><p>We have your RSVP and look forward to celebrating with you.</p><div class="btns"><a class="btn primary" href="index.html">Back to invitation</a></div></div>
 </main>
 <script>
