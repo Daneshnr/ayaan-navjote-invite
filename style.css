@@ -101,3 +101,14 @@ input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(233,
   .inv-l>.btns{order:4}
   .inv-r>.count{order:5}
 }
+.pic{margin:4px 0 14px;padding:14px 10px;background:var(--tile);border:1px solid var(--line);border-radius:20px;display:flex;justify-content:center}
+.pic svg{width:100%;max-width:300px;height:auto;display:block}
+.pic img{max-width:100%;height:auto;max-height:250px;display:block}
+.fall{animation:fall var(--d,6s) linear infinite;animation-delay:var(--w,0s);opacity:0}
+@keyframes fall{0%{transform:translate(0,-26px);opacity:0}8%{opacity:1}50%{transform:translate(calc(var(--x) * -.6),70px)}92%{opacity:1}100%{transform:translate(var(--x),162px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fall{animation:none;opacity:.9}}
+#send:active,#send.busy,#dsend:active,#dsend.busy{background:#cf9633;border-color:#cf9633;transform:none}
+@media (max-width:859px){
+  .inv-r>.details{margin-bottom:6px}
+  .inv-l>.presence{margin-top:0}
+}
