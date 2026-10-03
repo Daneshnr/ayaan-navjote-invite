@@ -117,3 +117,5 @@ br.m{display:none}
 #ask{white-space:nowrap;font-size:min(1rem,calc((100vw - 76px)/24))}
 .attend legend{white-space:nowrap}
 @media (max-width:480px){.attend legend{letter-spacing:.12em;font-size:min(.7rem,calc((100vw - 118px)/21.5))}}
+#thanks p{white-space:nowrap;font-size:min(1rem,calc((100vw - 116px)/17.7))}
+@media (max-width:480px){#thanks{padding:24px 18px}}
