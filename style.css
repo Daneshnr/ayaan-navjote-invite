@@ -112,3 +112,5 @@ input:focus{border-color:var(--gold);outline:none;box-shadow:0 0 0 3px rgba(233,
   .inv-r>.details{margin-bottom:6px}
   .inv-l>.presence{margin-top:0}
 }
+br.m{display:none}
+@media (max-width:600px){br.m{display:inline}}
