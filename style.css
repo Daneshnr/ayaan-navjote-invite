@@ -119,3 +119,4 @@ br.m{display:none}
 @media (max-width:480px){.attend legend{letter-spacing:.12em;font-size:min(.7rem,calc((100vw - 118px)/21.5))}}
 #thanks p{white-space:nowrap;font-size:min(1rem,calc((100vw - 116px)/17.7))}
 @media (max-width:480px){#thanks{padding:24px 18px}}
+.farohar{display:block;width:min(360px,90%);height:auto;margin:6px auto 14px;filter:drop-shadow(0 6px 16px rgba(10,14,48,.35))}
