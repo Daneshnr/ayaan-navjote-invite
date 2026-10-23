@@ -46,5 +46,10 @@
 <a class="btn primary" href="rsvp.html">RSVP</a>
 </div>
 </main>
+<script>
+// counts one visit per browser session
+(function(){try{var k='viewed_significance';if(sessionStorage.getItem(k))return;sessionStorage.setItem(k,'1');
+fetch('https://script.google.com/macros/s/AKfycbwcMoyiqVXj27jVL6ydHL6yYLJUUSvpx1s4rha91WTpmRLKlsgSzCpWJJNAfcA898-WUQ/exec',{method:'POST',mode:'no-cors',keepalive:true,body:new URLSearchParams({action:'view',page:'significance'})}).catch(function(){});}catch(e){}})();
+</script>
 </body>
 </html>
